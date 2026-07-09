@@ -1,1 +1,21 @@
-[paste]
+{
+  "name": "Observation",
+  "type": "object",
+  "properties": {
+    "user_id": { "type": "string" },
+    "taxon_id": { "type": "string", "description": "Reference to generalized Taxon (fungus or plant)" },
+    "taxon_type": { "type": "string", "enum": ["fungus", "plant"] },
+    "mushroom_id": { "type": "string", "description": "Legacy for migration" },
+    "lat": { "type": "number" },
+    "lon": { "type": "number" },
+    "location_name": { "type": "string" },
+    "date_found": { "type": "string" },
+    "confidence": { "type": "number" },
+    "notes": { "type": "string" },
+    "photo_ref": { "type": "string" },
+    "photo_storage_ref": { "type": "string" },
+    "verified": { "type": "boolean", "default": false },
+    "source": { "type": "string", "enum": ["user", "research_subagent", "api"] },
+    "research_ref": { "type": "string" }
+  }
+}

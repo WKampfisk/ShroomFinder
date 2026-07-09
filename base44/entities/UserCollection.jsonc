@@ -1,1 +1,17 @@
-[paste]
+{
+  "name": "UserCollection",
+  "type": "object",
+  "properties": {
+    "user_id": { "type": "string" },
+    "taxon_id": { "type": "string", "description": "Reference to generalized Taxon (fungus or plant)" },
+    "taxon_type": { "type": "string", "enum": ["fungus", "plant"] },
+    "mushroom_id": { "type": "string", "description": "Legacy for migration" },
+    "first_collected_date": { "type": "string" },
+    "count": { "type": "number", "default": 1 },
+    "notes": { "type": "string" },
+    "badges_earned": { "type": "array", "items": { "type": "string" } },
+    "streak_days": { "type": "number", "default": 0 },
+    "last_logged_date": { "type": "string" },
+    "challenges_completed": { "type": "array", "items": { "type": "string" } }
+  }
+}
