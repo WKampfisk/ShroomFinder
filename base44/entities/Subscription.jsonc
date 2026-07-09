@@ -1,0 +1,11 @@
+{
+  "name": "Subscription",
+  "type": "object",
+  "properties": {
+    "user_id": { "type": "string" },
+    "tier": { "type": "string", "enum": ["free", "premium"], "default": "free" },
+    "stripe_subscription_id": { "type": "string" },
+    "status": { "type": "string" },
+    "current_period_end": { "type": "string" }
+  }
+}

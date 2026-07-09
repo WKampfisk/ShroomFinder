@@ -1,0 +1,18 @@
+{
+  "name": "ForagingSite",
+  "type": "object",
+  "properties": {
+    "name": { "type": "string" },
+    "lat": { "type": "number" },
+    "lon": { "type": "number" },
+    "radius": { "type": "number" },
+    "likely_species": { "type": "array", "items": { "type": "string" } },
+    "quality_score": { "type": "number" },
+    "warnings": { "type": "string" },
+    "last_reported": { "type": "string" },
+    "is_public": { "type": "boolean", "default": true },
+    "contributor_user_id": { "type": "string" },
+    "prediction_confidence": { "type": "number" },
+    "last_prediction_update": { "type": "string" }
+  }
+}
