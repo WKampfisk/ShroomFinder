@@ -1,0 +1,4 @@
+{
+  "name": "searchHybridTaxa",
+  "description": "Hybrid search over Taxon + external (GBIF/POWO/iNat) + map helpers."
+}

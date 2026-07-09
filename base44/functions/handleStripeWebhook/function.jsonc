@@ -1,0 +1,4 @@
+{
+  "name": "handleStripeWebhook",
+  "description": "Stripe webhook handler updating Subscription entity."
+}

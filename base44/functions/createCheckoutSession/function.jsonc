@@ -1,0 +1,4 @@
+{
+  "name": "createCheckoutSession",
+  "description": "Stripe checkout for premium."
+}
