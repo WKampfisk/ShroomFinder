@@ -1,0 +1,9 @@
+{
+  "name": "ShroomFinder",
+  "short_name": "ShroomFinder",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#f0f7f0",
+  "theme_color": "#166534",
+  "icons": []
+}
