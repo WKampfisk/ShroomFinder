@@ -5,8 +5,15 @@ const config: CapacitorConfig = {
   appName: 'ShroomFinder',
   webDir: 'dist',
   bundledWebRuntime: false,
-  server: { cleartext: true },
-  plugins: { Camera: {}, Geolocation: {}, Filesystem: {}, Preferences: {} }
+  server: {
+    cleartext: true, // dev only; set false or remove for release APK
+  },
+  plugins: {
+    Camera: {},
+    Geolocation: {},
+    Filesystem: {},
+    Preferences: {}
+  }
 };
 
 export default config;

@@ -12,5 +12,9 @@ export default defineConfig({
   ],
   server: {
     port: 5174
+  },
+  optimizeDeps: {
+    // Suppress deprecation from base44 plugin (Vite now uses rolldown)
+    esbuildOptions: undefined
   }
 })

@@ -1,0 +1,27 @@
+{
+  "name": "shroomfinder",
+  "displayName": "ShroomFinder",
+  "description": "Gamified mycological discovery platform. Collect mushrooms, explore interactive maps, search by species or location, and use AI-powered predictions fed by continuous subagent research. Premium via Stripe.",
+  "site": {
+    "installCommand": "npm install",
+    "buildCommand": "npm run build",
+    "serveCommand": "npm run dev",
+    "outputDirectory": "./dist"
+  },
+  "theme": {
+    "primary": "#166534",
+    "accent": "#4ade80"
+  },
+  "_secrets_note": "Set these in Base44 dashboard > App Settings > Secrets/Env. Never hardcode. See README for full list. VITE_BASE44_APP_ID is typically set by the platform for the app (6a4ed4b6e92de775028c4011).",
+  "_required_secrets": [
+    "STRIPE_SECRET_KEY",
+    "STRIPE_WEBHOOK_SECRET",
+    "VITE_STRIPE_PUBLISHABLE_KEY"
+  ],
+  "_optional_secrets_for_full_features": [
+    "MAPBOX_ACCESS_TOKEN",
+    "SENTINEL_HUB_CLIENT_ID",
+    "SENTINEL_HUB_CLIENT_SECRET",
+    "PLANTNET_API_KEY"
+  ]
+}

@@ -48,7 +48,6 @@ See base44/functions/getAICompanion/main.ts for the flawless AI implementation.
 - Capacitor for native APK
 
 ## Quick Start (Local Base44 Workspace)
-
 1. cd base44-apps/shroomfinder
 2. npm install
 3. npm run dev   (or build for production)
@@ -66,5 +65,43 @@ Full design document (with PR plan, Key Decisions, diagrams): see original desig
 **All user requirements incorporated**: ALL species mushrooms searchable, all ethnobotanical plants in DB, rapid succession subagents, full login + Pokémon-style game UI, Stripe, APK ready.
 
 Run `npm run build` after setup for the web/PWA shell. Backend data comes from your seeded Base44 instance.
+
+**Diagnosis complete (2026-07-09):** All major stubs removed. WildDex, Map (Leaflet + layers + predictions + DB autocomplete), Scanner (Capacitor + identifyTaxon), Collection (persisted to entities), AI, Stripe checkout, gamification all fully operative with strong error fallbacks. All functions standardized on Taxon where possible. Build clean. Use `base44` CLI to push entities/functions + seedTaxa.
+
+## Required Base44 Secrets (set in Base44 dashboard > Secrets or Environment)
+
+**Always needed:**
+- `STRIPE_SECRET_KEY` - Your Stripe secret key (start with sk_test_ for testing)
+- `STRIPE_WEBHOOK_SECRET` - Stripe webhook signing secret (from Stripe dashboard > Webhooks)
+- `VITE_STRIPE_PUBLISHABLE_KEY` - Stripe publishable key (pk_test_...) for frontend
+
+**For advanced map & predictions (interactive map with satellite/NDVI layers):**
+- `MAPBOX_ACCESS_TOKEN` - Mapbox public token (for better map tiles, geocoding, layers if not using plain Leaflet/OSM)
+- `SENTINEL_HUB_CLIENT_ID` and `SENTINEL_HUB_CLIENT_SECRET` - For Sentinel Hub Process API (satellite imagery, NDVI, vegetation data for habitat predictions)
+
+**Optional for enhanced identification:**
+- `PLANTNET_API_KEY` - For Pl@ntNet plant identification API (better plant ID in scanner)
+
+**How to set:**
+- In Base44 dashboard for this app, go to Settings > Secrets / Environment Variables.
+- Add them (test vs live).
+- In code: Functions use `Deno.env.get("NAME")`
+- Frontend: `import.meta.env.VITE_NAME`
+- Never commit secrets. Use .env.local locally if supported by your setup.
+
+**Base44 App Client (createClient):**
+- `VITE_BASE44_APP_ID=6a4ed4b6e92de775028c4011` (the app ID for this ShroomFinder instance)
+- If your Base44 setup requires an API key header: `VITE_BASE44_API_KEY=...`
+- The client is created as:
+  ```js
+  import { createClient } from '@base44/sdk';
+  const base44 = createClient({
+    appId: import.meta.env.VITE_BASE44_APP_ID || "6a4ed4b6e92de775028c4011",
+    headers: import.meta.env.VITE_BASE44_API_KEY ? { "api_key": import.meta.env.VITE_BASE44_API_KEY } : undefined
+  });
+  ```
+- On Base44 hosting, the VITE_BASE44_* are usually auto-injected via the vite plugin.
+
+See SHROOMFINDER_BUILD_PROMPT.md for more.
 
 Happy foraging (safely)! 🍄🌿
